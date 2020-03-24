@@ -13,13 +13,13 @@ COPY ./enable-php-extension /usr/local/bin/
 RUN chmod +x /usr/local/bin/enable-php-extension
 
 # add user
-RUN groupadd -g 1000 twitf && \
-  useradd -u 1000 -g twitf -m twitf -s /bin/bash && \
-  echo 'twitf:twitf' | chpasswd && \
+RUN groupadd -g 1000 paddy && \
+  useradd -u 1000 -g paddy -m paddy -s /bin/bash && \
+  echo 'paddy:111111' | chpasswd && \
   echo 'root:root' | chpasswd && \
   ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN mkdir -pv /www/{{tmp,server,wwwroot,wwwlogs},server/{php,supervisor/conf}} &&  chown -R twitf:twitf /www
+RUN mkdir -pv /www/{{tmp,server,wwwroot,wwwlogs},server/{php,supervisor/conf}} &&  chown -R paddy:paddy /www
 
 RUN rpm --import /etc/pki/rpm-gpg/RPM*
 
